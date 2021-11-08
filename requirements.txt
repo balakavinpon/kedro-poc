@@ -1,0 +1,6 @@
+kedro==0.17.4
+pyarrow
+cachetools
+pylivy
+livy
+scikit-learn
