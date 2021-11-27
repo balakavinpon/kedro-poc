@@ -33,3 +33,12 @@
 2021-11-08 11:22:21,998 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
 2021-11-08 12:13:30,886 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
 2021-11-08 12:13:42,968 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-11-27 11:08:33,928 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:11:00,903 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:11:01,488 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-11-27 11:11:33,019 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:14:53,600 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:15:18,205 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:15:28,627 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:16:27,007 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-11-27 11:16:27,586 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.

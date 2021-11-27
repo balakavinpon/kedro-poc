@@ -264,3 +264,4 @@ You can resume the pipeline run by adding the following argument to your previou
 2021-11-08 12:13:43,804 - kedro.runner.sequential_runner - INFO - Completed 1 out of 1 tasks
 2021-11-08 12:13:43,804 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
 2021-11-08 12:13:43,804 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-11-27 11:11:02,264 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
