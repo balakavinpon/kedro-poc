@@ -1,7 +1,7 @@
 [tool.kedro]
 package_name = "pkg"
 project_name = "Test-Project"
-project_version = "0.17.4"
+project_version = "0.17.5"
 
 [tool.isort]
 multi_line_output = 3

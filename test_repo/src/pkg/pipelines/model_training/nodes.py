@@ -34,7 +34,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 def data_acquisition(params):
-    data = pd.read_csv(r"/mnt/kedro-poc/diabetes.csv")
+    data = pd.read_csv(r"data/01_raw/diabetes.csv")
     raw_data = data
     return raw_data 
 

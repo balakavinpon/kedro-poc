@@ -1,0 +1,93 @@
+
+# Base url of the Kubeflow Pipelines, should include the schema (http/https)
+host: https://7e6407e7d5ca54c3-dot-us-central1.pipelines.googleusercontent.com/
+
+# Configuration used to run the pipeline
+run_config:
+
+  # Name of the image to run as the pipeline steps
+  image: test_repo
+
+  # Pull pilicy to be used for the steps. Use Always if you push the images
+  # on the same tag, or Never if you use only local images
+  image_pull_policy: IfNotPresent
+
+  # Location of Vertex AI GCS root, required only for vertex ai pipelines configuration
+  #root: bucket_name/gcs_suffix
+
+  # Name of the kubeflow experiment to be created
+  experiment_name: test_repo
+
+  # Name of the run for run-once
+  run_name: test_repo
+
+  # Optional pipeline description
+  #description: "Very Important Pipeline"
+
+  # Flag indicating if the run-once should wait for the pipeline to finish
+  wait_for_completion: False
+
+  # How long to keep underlying Argo workflow (together with pods and data
+  # volume after pipeline finishes) [in seconds]. Default: 1 week
+  ttl: 604800
+
+  # This sets the caching option for pipeline using
+  # execution_options.caching_strategy.max_cache_staleness
+  # See https://en.wikipedia.org/wiki/ISO_8601 in section 'Duration'
+  #max_cache_staleness: P0D
+
+  # Set to false to disable kfp artifacts exposal
+  # This setting can be useful if you don't want to store
+  # intermediate results in the MLMD
+  #store_kedro_outputs_as_kfp_artifacts: True
+
+  # Optional volume specification (only for non vertex-ai)
+  volume:
+
+    # Storage class - use null (or no value) to use the default storage
+    # class deployed on the Kubernetes cluster
+    storageclass: # default
+
+    # The size of the volume that is created. Applicable for some storage
+    # classes
+    size: 1Gi
+
+    # Access mode of the volume used to exchange data. ReadWriteMany is
+    # preferred, but it is not supported on some environements (like GKE)
+    # Default value: ReadWriteOnce
+    #access_modes: [ReadWriteMany]
+
+    # Flag indicating if the data-volume-init step (copying raw data to the
+    # fresh volume) should be skipped
+    skip_init: False
+
+    # Allows to specify user executing pipelines within containers
+    # Default: root user (to avoid issues with volumes in GKE)
+    owner: 0
+
+    # Flak indicating if volume for inter-node data exchange should be
+    # kept after the pipeline is deleted
+    keep: False
+
+  # Optional section allowing adjustment of the resources
+  # reservations and limits for the nodes
+  resources:
+
+    # For nodes that require more RAM you can increase the "memory"
+    data_import_step:
+      memory: 2Gi
+
+    # Training nodes can utilize more than one CPU if the algoritm
+    # supports it
+    model_training:
+      cpu: 8
+      memory: 1Gi
+
+    # GPU-capable nodes can request 1 GPU slot
+    tensorflow_step:
+      nvidia.com/gpu: 1
+
+    # Default settings for the nodes
+    __default__:
+      cpu: 200m
+      memory: 64Mi
