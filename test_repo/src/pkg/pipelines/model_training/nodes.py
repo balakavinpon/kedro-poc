@@ -33,9 +33,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
-def data_acquisition(params):
-    data = pd.read_csv(r"data/01_raw/diabetes.csv")
+def data_acquisition(params, data):
+    #data = pd.read_csv(r"data/01_raw/diabetes.csv")
     raw_data = data
+    print(data.loc[[1]])
     return raw_data 
 
 def feature_engineering(params, raw_data):

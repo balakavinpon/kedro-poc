@@ -1,0 +1,301 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: test-project-
+  annotations: {pipelines.kubeflow.org/kfp_sdk_version: 1.6.6, pipelines.kubeflow.org/pipeline_compilation_time: '2021-12-03T09:13:06.559153',
+    pipelines.kubeflow.org/pipeline_spec: '{"description": "Convert from a Kedro pipeline
+      into a kfp container graph.", "inputs": [{"default": "0.3", "name": "ratio",
+      "optional": true}], "name": "Test-Project"}'}
+  labels: {pipelines.kubeflow.org/kfp_sdk_version: 1.6.6}
+spec:
+  entrypoint: test-project
+  templates:
+  - name: data-acquisition-parameters-dataset
+    container:
+      args: [run, --env, local, --params, 'ratio:{{inputs.parameters.ratio}}', --pipeline,
+        __default__, --node, 'data_acquisition([parameters]) -> [dataset]']
+      command: [kedro]
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      image: gcr.io/kedro-kubeflow-333513/test_repo:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: 400m, memory: 512Mi}
+        requests: {cpu: 400m, memory: 512Mi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: ratio}
+    outputs:
+      artifacts:
+      - {name: data-acquisition-parameters-dataset-dataset, path: /home/kedro/data/output/raw_dataset.csv}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: data-volume-create
+    resource:
+      action: create
+      manifest: |
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: '{{workflow.name}}-default-data-volume'
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+    outputs:
+      parameters:
+      - name: data-volume-create-manifest
+        valueFrom: {jsonPath: '{}'}
+      - name: data-volume-create-name
+        valueFrom: {jsonPath: '{.metadata.name}'}
+      - name: data-volume-create-size
+        valueFrom: {jsonPath: '{.status.capacity.storage}'}
+    metadata:
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+  - name: data-volume-init
+    container:
+      args: [cp --verbose -r /home/kedro/data/* /home/kedro/datavolume]
+      command: [sh, -c]
+      image: gcr.io/kedro-kubeflow-333513/test_repo:latest
+      imagePullPolicy: IfNotPresent
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/datavolume, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: exit-handler-1
+    inputs:
+      parameters:
+      - {name: ratio}
+    dag:
+      tasks:
+      - name: data-acquisition-parameters-dataset
+        template: data-acquisition-parameters-dataset
+        dependencies: [data-volume-create, data-volume-init]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: ratio, value: '{{inputs.parameters.ratio}}'}
+      - {name: data-volume-create, template: data-volume-create}
+      - name: data-volume-init
+        template: data-volume-init
+        dependencies: [data-volume-create]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+      - name: feature-engineering-dataset-parameters-cleaned-dataset
+        template: feature-engineering-dataset-parameters-cleaned-dataset
+        dependencies: [data-acquisition-parameters-dataset, data-volume-create, data-volume-init]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: ratio, value: '{{inputs.parameters.ratio}}'}
+      - name: model-training-parameters-x-train-y-train-model
+        template: model-training-parameters-x-train-y-train-model
+        dependencies: [data-volume-create, data-volume-init, train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: ratio, value: '{{inputs.parameters.ratio}}'}
+      - name: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train
+        template: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train
+        dependencies: [data-volume-create, data-volume-init, feature-engineering-dataset-parameters-cleaned-dataset]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: ratio, value: '{{inputs.parameters.ratio}}'}
+      - name: validation-model-parameters-x-test-y-test-metrics
+        template: validation-model-parameters-x-test-y-test-metrics
+        dependencies: [data-volume-create, data-volume-init, model-training-parameters-x-train-y-train-model,
+          train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train]
+        arguments:
+          parameters:
+          - {name: data-volume-create-name, value: '{{tasks.data-volume-create.outputs.parameters.data-volume-create-name}}'}
+          - {name: ratio, value: '{{inputs.parameters.ratio}}'}
+  - name: feature-engineering-dataset-parameters-cleaned-dataset
+    container:
+      args: [run, --env, local, --params, 'ratio:{{inputs.parameters.ratio}}', --pipeline,
+        __default__, --node, 'feature_engineering([dataset,parameters]) -> [cleaned_dataset]']
+      command: [kedro]
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      image: gcr.io/kedro-kubeflow-333513/test_repo:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: 400m, memory: 512Mi}
+        requests: {cpu: 400m, memory: 512Mi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: ratio}
+    outputs:
+      artifacts:
+      - {name: feature-engineering-dataset-parameters-cleaned-dataset-cleaned_dataset,
+        path: /home/kedro/data/output/cleaned_data.csv}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: model-training-parameters-x-train-y-train-model
+    container:
+      args: [run, --env, local, --params, 'ratio:{{inputs.parameters.ratio}}', --pipeline,
+        __default__, --node, 'model_training([parameters,x_train,y_train]) -> [model]']
+      command: [kedro]
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      image: gcr.io/kedro-kubeflow-333513/test_repo:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: 400m, memory: 512Mi}
+        requests: {cpu: 400m, memory: 512Mi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: ratio}
+    outputs:
+      artifacts:
+      - {name: model-training-parameters-x-train-y-train-model-model, path: /home/kedro/data/output/model.pkl}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: schedule-volume-termination
+    container:
+      command: [kubectl, delete, pvc, '{{workflow.name}}-default-data-volume', --wait=false,
+        --ignore-not-found, --output, name]
+      image: gcr.io/cloud-builders/kubectl
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+  - name: test-project
+    inputs:
+      parameters:
+      - {name: ratio}
+    dag:
+      tasks:
+      - name: exit-handler-1
+        template: exit-handler-1
+        arguments:
+          parameters:
+          - {name: ratio, value: '{{inputs.parameters.ratio}}'}
+  - name: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train
+    container:
+      args: [run, --env, local, --params, 'ratio:{{inputs.parameters.ratio}}', --pipeline,
+        __default__, --node, 'train_test_split_fun([cleaned_dataset,parameters]) ->
+          [x_test,x_train,y_test,y_train]']
+      command: [kedro]
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      image: gcr.io/kedro-kubeflow-333513/test_repo:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: 400m, memory: 512Mi}
+        requests: {cpu: 400m, memory: 512Mi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: ratio}
+    outputs:
+      artifacts:
+      - {name: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train-x_test,
+        path: /home/kedro/data/output/x_test.csv}
+      - {name: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train-x_train,
+        path: /home/kedro/data/output/x_train.csv}
+      - {name: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train-y_test,
+        path: /home/kedro/data/output/y_test.csv}
+      - {name: train-test-split-fun-cleaned-dataset-parameters-x-test-x-train-y-test-y-train-y_train,
+        path: /home/kedro/data/output/y_train.csv}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  - name: validation-model-parameters-x-test-y-test-metrics
+    container:
+      args: [run, --env, local, --params, 'ratio:{{inputs.parameters.ratio}}', --pipeline,
+        __default__, --node, 'validation([model,parameters,x_test,y_test]) -> [metrics]']
+      command: [kedro]
+      env:
+      - {name: IAP_CLIENT_ID, value: ''}
+      image: gcr.io/kedro-kubeflow-333513/test_repo:latest
+      imagePullPolicy: IfNotPresent
+      resources:
+        limits: {cpu: 400m, memory: 512Mi}
+        requests: {cpu: 400m, memory: 512Mi}
+      securityContext: {runAsUser: 0}
+      volumeMounts:
+      - {mountPath: /home/kedro/data, name: data-volume-create}
+    inputs:
+      parameters:
+      - {name: data-volume-create-name}
+      - {name: ratio}
+    outputs:
+      artifacts:
+      - {name: validation-model-parameters-x-test-y-test-metrics-metrics, path: /home/kedro/data/output/metrics.pkl}
+    metadata:
+      labels:
+        pipelines.kubeflow.org/kfp_sdk_version: 1.6.6
+        pipelines.kubeflow.org/pipeline-sdk-type: kfp
+        pipelines.kubeflow.org/enable_caching: "true"
+      annotations: {pipelines.kubeflow.org/max_cache_staleness: None}
+    volumes:
+    - name: data-volume-create
+      persistentVolumeClaim: {claimName: '{{inputs.parameters.data-volume-create-name}}'}
+  arguments:
+    parameters:
+    - {name: ratio, value: '0.3'}
+  serviceAccountName: pipeline-runner
+  ttlSecondsAfterFinished: 604800
+  onExit: schedule-volume-termination

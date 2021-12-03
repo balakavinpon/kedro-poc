@@ -1,12 +1,12 @@
 
 # Base url of the Kubeflow Pipelines, should include the schema (http/https)
-host: https://7e6407e7d5ca54c3-dot-us-central1.pipelines.googleusercontent.com/
+host: https://39c4005ac61a8c4c-dot-us-central1.pipelines.googleusercontent.com/
 
 # Configuration used to run the pipeline
 run_config:
 
   # Name of the image to run as the pipeline steps
-  image: test_repo
+  image: gcr.io/kedro-kubeflow-333513/test_repo:latest
 
   # Pull pilicy to be used for the steps. Use Always if you push the images
   # on the same tag, or Never if you use only local images
@@ -34,7 +34,7 @@ run_config:
   # This sets the caching option for pipeline using
   # execution_options.caching_strategy.max_cache_staleness
   # See https://en.wikipedia.org/wiki/ISO_8601 in section 'Duration'
-  #max_cache_staleness: P0D
+  max_cache_staleness: P0D
 
   # Set to false to disable kfp artifacts exposal
   # This setting can be useful if you don't want to store
@@ -59,7 +59,7 @@ run_config:
 
     # Flag indicating if the data-volume-init step (copying raw data to the
     # fresh volume) should be skipped
-    skip_init: False
+    skip_init: True
 
     # Allows to specify user executing pipelines within containers
     # Default: root user (to avoid issues with volumes in GKE)
@@ -80,14 +80,11 @@ run_config:
     # Training nodes can utilize more than one CPU if the algoritm
     # supports it
     model_training:
-      cpu: 8
+      cpu: 2
       memory: 1Gi
 
-    # GPU-capable nodes can request 1 GPU slot
-    tensorflow_step:
-      nvidia.com/gpu: 1
 
     # Default settings for the nodes
     __default__:
-      cpu: 200m
-      memory: 64Mi
+      cpu: 400m
+      memory: 512Mi

@@ -41,7 +41,7 @@ from pkg.pipelines.model_training.nodes import (
 
 def create_pipeline(**kwargs):
     model_training_pipeline = Pipeline([node(data_acquisition,
-                                  inputs='parameters',
+                                  inputs=['parameters','diabetes'],
                                   outputs='dataset'),
                      node(feature_engineering,
                                  inputs=['parameters','dataset'],

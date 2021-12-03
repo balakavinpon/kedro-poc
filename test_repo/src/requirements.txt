@@ -17,3 +17,4 @@ kedro-kubeflow
 kedro-docker
 pandas
 scikit-learn
+gcsfs
