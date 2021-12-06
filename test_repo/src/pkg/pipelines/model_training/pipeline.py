@@ -42,15 +42,19 @@ from pkg.pipelines.model_training.nodes import (
 def create_pipeline(**kwargs):
     model_training_pipeline = Pipeline([node(data_acquisition,
                                   inputs=['parameters','diabetes'],
-                                  outputs='dataset'),
+                                  outputs='dataset',
+                                  name="data_acquisition"),
                      node(feature_engineering,
                                  inputs=['parameters','dataset'],
-                                 outputs='cleaned_dataset'),
+                                 outputs='cleaned_dataset',
+                                 name="feature_engineering"),
                     node(train_test_split_fun,
                                  inputs=['parameters','cleaned_dataset'],
-                                 outputs=['x_train','x_test','y_train','y_test']),
+                                 outputs=['x_train','x_test','y_train','y_test'],
+                                 name="train_test_split_fun"),
                      node(model_training,
                                  inputs=['parameters','x_train', 'y_train'],
-                                 outputs='model'),
+                                 outputs='model',
+                                 name="model_training"),
                                     ])
     return model_training_pipeline

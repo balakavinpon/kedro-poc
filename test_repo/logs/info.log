@@ -568,3 +568,108 @@ You can resume the pipeline run by adding the following argument to your previou
 2021-12-03 10:19:15,943 - kedro.runner.sequential_runner - INFO - Completed 5 out of 5 tasks
 2021-12-03 10:19:15,943 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
 2021-12-03 10:19:15,943 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-06 18:20:47,781 - root - INFO - ** Kedro project test_repo
+2021-12-06 18:21:46,214 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-06 18:22:27,515 - root - INFO - ** Kedro project test_repo
+2021-12-06 18:22:33,542 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: timed out
+2021-12-06 18:22:36,543 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: timed out
+2021-12-06 18:22:36,544 - google.auth.compute_engine._metadata - WARNING - Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: [Errno 64] Host is down
+2021-12-06 18:22:36,544 - google.auth._default - WARNING - Authentication failed using Compute Engine authentication due to unavailable metadata server.
+2021-12-06 18:22:36,563 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 18:22:36,563 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-06 18:22:37,011 - gcsfs - ERROR - _request non-retriable exception: Anonymous caller does not have storage.objects.get access to the Google Cloud Storage object., 401
+Traceback (most recent call last):
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/gcsfs/retry.py", line 115, in retry_request
+    return await func(*args, **kwargs)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/gcsfs/core.py", line 378, in _request
+    validate_response(status, contents, path, args)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/gcsfs/retry.py", line 102, in validate_response
+    raise HttpError(error)
+gcsfs.retry.HttpError: Anonymous caller does not have storage.objects.get access to the Google Cloud Storage object., 401
+2021-12-06 18:22:37,013 - kedro.runner.sequential_runner - WARNING - There are 5 nodes that have not run.
+You can resume the pipeline run by adding the following argument to your previous command:
+
+2021-12-06 18:22:37,018 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-06 20:24:00,603 - root - INFO - ** Kedro project test_repo
+2021-12-06 20:24:03,361 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 20:24:03,361 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-06 20:24:05,054 - kedro.pipeline.node - INFO - Running node: data_acquisition([diabetes,parameters]) -> [dataset]
+2021-12-06 20:24:05,072 - kedro.io.data_catalog - INFO - Saving data to `dataset` (CSVDataSet)...
+2021-12-06 20:24:06,986 - kedro.runner.sequential_runner - INFO - Completed 1 out of 5 tasks
+2021-12-06 20:24:06,986 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 20:24:06,987 - kedro.io.data_catalog - INFO - Loading data from `dataset` (CSVDataSet)...
+2021-12-06 20:24:08,180 - kedro.pipeline.node - INFO - Running node: feature_engineering([dataset,parameters]) -> [cleaned_dataset]
+2021-12-06 20:24:08,186 - kedro.io.data_catalog - INFO - Saving data to `cleaned_dataset` (CSVDataSet)...
+2021-12-06 20:24:09,846 - kedro.runner.sequential_runner - INFO - Completed 2 out of 5 tasks
+2021-12-06 20:24:09,846 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 20:24:09,847 - kedro.io.data_catalog - INFO - Loading data from `cleaned_dataset` (CSVDataSet)...
+2021-12-06 20:24:11,108 - kedro.pipeline.node - INFO - Running node: train_test_split_fun([cleaned_dataset,parameters]) -> [x_test,x_train,y_test,y_train]
+2021-12-06 20:24:11,114 - kedro.io.data_catalog - INFO - Saving data to `x_train` (CSVDataSet)...
+2021-12-06 20:24:12,749 - kedro.io.data_catalog - INFO - Saving data to `x_test` (CSVDataSet)...
+2021-12-06 20:24:14,401 - kedro.io.data_catalog - INFO - Saving data to `y_train` (CSVDataSet)...
+2021-12-06 20:24:16,021 - kedro.io.data_catalog - INFO - Saving data to `y_test` (CSVDataSet)...
+2021-12-06 20:24:17,624 - kedro.runner.sequential_runner - INFO - Completed 3 out of 5 tasks
+2021-12-06 20:24:17,625 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 20:24:17,625 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-06 20:24:18,777 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-06 20:24:19,645 - kedro.pipeline.node - INFO - Running node: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-06 20:24:19,781 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-06 20:24:21,451 - kedro.runner.sequential_runner - INFO - Completed 4 out of 5 tasks
+2021-12-06 20:24:21,452 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 20:24:21,453 - kedro.io.data_catalog - INFO - Loading data from `model` (PickleDataSet)...
+2021-12-06 20:24:22,770 - kedro.io.data_catalog - INFO - Loading data from `x_test` (CSVDataSet)...
+2021-12-06 20:24:23,952 - kedro.io.data_catalog - INFO - Loading data from `y_test` (CSVDataSet)...
+2021-12-06 20:24:25,093 - kedro.pipeline.node - INFO - Running node: validation([model,parameters,x_test,y_test]) -> [metrics]
+2021-12-06 20:24:25,112 - kedro.io.data_catalog - INFO - Saving data to `metrics` (PickleDataSet)...
+2021-12-06 20:24:26,761 - kedro.runner.sequential_runner - INFO - Completed 5 out of 5 tasks
+2021-12-06 20:24:26,762 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-06 20:24:26,763 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-06 20:29:54,826 - root - INFO - ** Kedro project test_repo
+2021-12-06 20:29:55,851 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-06 20:53:11,701 - root - INFO - ** Kedro project test_repo
+2021-12-06 20:53:14,424 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-06 20:53:14,425 - kedro.io.data_catalog - INFO - Loading data from `model` (PickleDataSet)...
+2021-12-06 20:53:15,848 - kedro.io.data_catalog - INFO - Loading data from `x_test` (CSVDataSet)...
+2021-12-06 20:53:16,550 - kedro.io.data_catalog - INFO - Loading data from `y_test` (CSVDataSet)...
+2021-12-06 20:53:17,192 - kedro.pipeline.node - INFO - Running node: validation: validation([model,parameters,x_test,y_test]) -> [metrics]
+2021-12-06 20:53:17,218 - kedro.io.data_catalog - INFO - Saving data to `metrics` (PickleDataSet)...
+2021-12-06 20:53:18,737 - kedro.runner.sequential_runner - INFO - Completed 1 out of 1 tasks
+2021-12-06 20:53:18,738 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-06 20:53:18,738 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-06 20:56:12,969 - root - ERROR - Failed to get healthz info attempt 1 of 5.
+Traceback (most recent call last):
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp/_client.py", line 363, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 148, in get_healthz_with_http_info
+    collection_formats=collection_formats)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 369, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 185, in __call_api
+    _request_timeout=_request_timeout)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 393, in request
+    headers=headers)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 234, in GET
+    query_params=query_params)
+  File "/Users/sindhiyabalakavin/kavin/gcp/kedro/venv-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (524)
+Reason: status code 524
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1440', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Mon, 06 Dec 2021 15:26:12 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=t4f22DW2HFME_q3RRrHY3bbnrySob02bt4FjLGeCqi4; Path=/; Max-Age=3600', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 524 ()!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>524.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+

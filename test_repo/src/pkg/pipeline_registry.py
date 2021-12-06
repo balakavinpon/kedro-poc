@@ -47,6 +47,5 @@ def register_pipelines() -> Dict[str, Pipeline]:
     return {
                 "model_train": model_training_pipeline,           
                 "model_score": model_scoring_pipeline,
-                
                 "__default__": e2e_pipeline,
         }

@@ -38,6 +38,7 @@ from pkg.pipelines.model_scoring.nodes import (validation)
 def create_pipeline(**kwargs):
     model_scoring_pipeline = Pipeline([node(validation,
                                  inputs=['parameters','model','x_test','y_test'],
-                                 outputs='metrics')
+                                 outputs='metrics',
+                                 name="validation")
                                        ])
     return model_scoring_pipeline
