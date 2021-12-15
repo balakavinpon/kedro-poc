@@ -1,12 +1,16 @@
 
 # Base url of the Kubeflow Pipelines, should include the schema (http/https)
-host: https://6d6b13874d674e9-dot-asia-east1.pipelines.googleusercontent.com/
+host: vertex-ai-pipelines
+project_id: kedro-kubeflow-334417
+region: us-central1
 
 # Configuration used to run the pipeline
 run_config:
 
   # Name of the image to run as the pipeline steps
-  image: test_repo
+  image: gcr.io/kedro-kubeflow-334417/test_repo:latest
+
+  root: data_check_cloud_vertex_ai_pipeline
 
   # Pull pilicy to be used for the steps. Use Always if you push the images
   # on the same tag, or Never if you use only local images
@@ -19,13 +23,13 @@ run_config:
   experiment_name: test_repo
 
   # Name of the run for run-once
-  run_name: test_repo
+  run_name: test-repo-run12
 
   # Optional pipeline description
   #description: "Very Important Pipeline"
 
   # Flag indicating if the run-once should wait for the pipeline to finish
-  wait_for_completion: False
+  wait_for_completion: True
 
   # How long to keep underlying Argo workflow (together with pods and data
   # volume after pipeline finishes) [in seconds]. Default: 1 week
@@ -34,7 +38,7 @@ run_config:
   # This sets the caching option for pipeline using
   # execution_options.caching_strategy.max_cache_staleness
   # See https://en.wikipedia.org/wiki/ISO_8601 in section 'Duration'
-  #max_cache_staleness: P0D
+  max_cache_staleness: P0D
 
   # Set to false to disable kfp artifacts exposal
   # This setting can be useful if you don't want to store
@@ -80,7 +84,7 @@ run_config:
     # Training nodes can utilize more than one CPU if the algoritm
     # supports it
     model_training:
-      cpu: 2
+      cpu: 8
       memory: 1Gi
 
     # GPU-capable nodes can request 1 GPU slot

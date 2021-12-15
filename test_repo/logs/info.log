@@ -673,3 +673,389 @@ HTTP response body:
   <p>  <ins>That’s all we know.</ins>
 
 
+2021-12-07 17:43:39,100 - root - INFO - ** Kedro project kedro
+2021-12-07 17:43:40,767 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-07 17:43:40,790 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-07 17:43:40,790 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-07 17:43:41,533 - kedro.pipeline.node - INFO - Running node: data_acquisition: data_acquisition([diabetes,parameters]) -> [dataset]
+2021-12-07 17:43:41,549 - kedro.io.data_catalog - INFO - Saving data to `dataset` (CSVDataSet)...
+2021-12-07 17:43:42,297 - kedro.runner.sequential_runner - INFO - Completed 1 out of 5 tasks
+2021-12-07 17:43:42,297 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-07 17:43:42,298 - kedro.io.data_catalog - INFO - Loading data from `dataset` (CSVDataSet)...
+2021-12-07 17:43:43,138 - kedro.pipeline.node - INFO - Running node: feature_engineering: feature_engineering([dataset,parameters]) -> [cleaned_dataset]
+2021-12-07 17:43:43,141 - kedro.io.data_catalog - INFO - Saving data to `cleaned_dataset` (CSVDataSet)...
+2021-12-07 17:43:43,898 - kedro.runner.sequential_runner - INFO - Completed 2 out of 5 tasks
+2021-12-07 17:43:43,898 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-07 17:43:43,899 - kedro.io.data_catalog - INFO - Loading data from `cleaned_dataset` (CSVDataSet)...
+2021-12-07 17:43:44,728 - kedro.pipeline.node - INFO - Running node: train_test_split_fun: train_test_split_fun([cleaned_dataset,parameters]) -> [x_test,x_train,y_test,y_train]
+2021-12-07 17:43:44,731 - kedro.io.data_catalog - INFO - Saving data to `x_train` (CSVDataSet)...
+2021-12-07 17:43:45,458 - kedro.io.data_catalog - INFO - Saving data to `x_test` (CSVDataSet)...
+2021-12-07 17:43:46,258 - kedro.io.data_catalog - INFO - Saving data to `y_train` (CSVDataSet)...
+2021-12-07 17:43:46,952 - kedro.io.data_catalog - INFO - Saving data to `y_test` (CSVDataSet)...
+2021-12-07 17:43:47,708 - kedro.runner.sequential_runner - INFO - Completed 3 out of 5 tasks
+2021-12-07 17:43:47,709 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-07 17:43:47,709 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-07 17:43:48,549 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-07 17:43:49,170 - kedro.pipeline.node - INFO - Running node: model_training: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-07 17:43:49,389 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-07 17:43:50,119 - kedro.runner.sequential_runner - INFO - Completed 4 out of 5 tasks
+2021-12-07 17:43:50,119 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-07 17:43:50,120 - kedro.io.data_catalog - INFO - Loading data from `model` (PickleDataSet)...
+2021-12-07 17:43:51,125 - kedro.io.data_catalog - INFO - Loading data from `x_test` (CSVDataSet)...
+2021-12-07 17:43:51,946 - kedro.io.data_catalog - INFO - Loading data from `y_test` (CSVDataSet)...
+2021-12-07 17:43:52,779 - kedro.pipeline.node - INFO - Running node: validation: validation([model,parameters,x_test,y_test]) -> [metrics]
+2021-12-07 17:43:52,802 - kedro.io.data_catalog - INFO - Saving data to `metrics` (PickleDataSet)...
+2021-12-07 17:43:53,548 - kedro.runner.sequential_runner - INFO - Completed 5 out of 5 tasks
+2021-12-07 17:43:53,548 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-07 17:43:53,549 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-07 17:46:52,736 - root - INFO - ** Kedro project kedro
+2021-12-07 17:46:54,292 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-07 17:46:54,324 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-07 17:46:54,327 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-07 17:46:55,056 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-07 17:46:55,508 - kedro.pipeline.node - INFO - Running node: model_training: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-07 17:46:55,713 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-07 17:46:56,505 - kedro.runner.sequential_runner - INFO - Completed 1 out of 1 tasks
+2021-12-07 17:46:56,506 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-07 17:46:56,506 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-07 17:47:16,550 - root - ERROR - Failed to get healthz info attempt 1 of 5.
+Traceback (most recent call last):
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp/_client.py", line 363, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 148, in get_healthz_with_http_info
+    collection_formats=collection_formats)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 369, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 185, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 393, in request
+    headers=headers)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 234, in GET
+    query_params=query_params)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1452', 'Content-Type': 'text/html; charset=utf-8', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Date': 'Tue, 07 Dec 2021 17:47:16 GMT', 'Set-Cookie': 'S=cloud_datalab_tunnel=LyX1RoX0-fQhXqbfN_HV27vsXIpUFS3Kqfxo5Bycxts; Path=/; Max-Age=3600'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 401 (Unauthorized)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>401.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2021-12-07 17:47:21,878 - root - ERROR - Failed to get healthz info attempt 2 of 5.
+Traceback (most recent call last):
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp/_client.py", line 363, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 148, in get_healthz_with_http_info
+    collection_formats=collection_formats)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 369, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 185, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 393, in request
+    headers=headers)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 234, in GET
+    query_params=query_params)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1452', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 07 Dec 2021 17:47:21 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=LyX1RoX0-fQhXqbfN_HV27vsXIpUFS3Kqfxo5Bycxts; Path=/; Max-Age=3600'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 401 (Unauthorized)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>401.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2021-12-07 17:47:27,167 - root - ERROR - Failed to get healthz info attempt 3 of 5.
+Traceback (most recent call last):
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp/_client.py", line 363, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 148, in get_healthz_with_http_info
+    collection_formats=collection_formats)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 369, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 185, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 393, in request
+    headers=headers)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 234, in GET
+    query_params=query_params)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1452', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 07 Dec 2021 17:47:27 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=LyX1RoX0-fQhXqbfN_HV27vsXIpUFS3Kqfxo5Bycxts; Path=/; Max-Age=3600'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 401 (Unauthorized)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>401.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2021-12-07 17:47:32,465 - root - ERROR - Failed to get healthz info attempt 4 of 5.
+Traceback (most recent call last):
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp/_client.py", line 363, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 148, in get_healthz_with_http_info
+    collection_formats=collection_formats)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 369, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 185, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 393, in request
+    headers=headers)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 234, in GET
+    query_params=query_params)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1452', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 07 Dec 2021 17:47:32 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=LyX1RoX0-fQhXqbfN_HV27vsXIpUFS3Kqfxo5Bycxts; Path=/; Max-Age=3600'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 401 (Unauthorized)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>401.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2021-12-07 17:47:37,766 - root - ERROR - Failed to get healthz info attempt 5 of 5.
+Traceback (most recent call last):
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp/_client.py", line 363, in get_kfp_healthz
+    response = self._healthz_api.get_healthz()
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 63, in get_healthz
+    return self.get_healthz_with_http_info(**kwargs)  # noqa: E501
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api/healthz_service_api.py", line 148, in get_healthz_with_http_info
+    collection_formats=collection_formats)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 369, in call_api
+    _preload_content, _request_timeout, _host)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 188, in __call_api
+    raise e
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 185, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/api_client.py", line 393, in request
+    headers=headers)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 234, in GET
+    query_params=query_params)
+  File "/home/vzlearnpoc/vent-kedro/lib/python3.7/site-packages/kfp_server_api/rest.py", line 224, in request
+    raise ApiException(http_resp=r)
+kfp_server_api.exceptions.ApiException: (401)
+Reason: Unauthorized
+HTTP response headers: HTTPHeaderDict({'Content-Length': '1452', 'Content-Type': 'text/html; charset=utf-8', 'Date': 'Tue, 07 Dec 2021 17:47:37 GMT', 'Vary': 'Origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '0', 'Set-Cookie': 'S=cloud_datalab_tunnel=LyX1RoX0-fQhXqbfN_HV27vsXIpUFS3Kqfxo5Bycxts; Path=/; Max-Age=3600'})
+HTTP response body: 
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 401 (Unauthorized)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/logos/errorpage/error_logo-150x54-2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>401.</b> <ins>That’s an error.</ins>
+  <p>  <ins>That’s all we know.</ins>
+
+
+2021-12-08 05:28:54,058 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowje4btvx0.json
+2021-12-08 05:31:55,188 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowevrx7f7q.json
+2021-12-08 08:36:16,196 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowkbz2_5cu.json
+2021-12-08 08:37:00,866 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflow3jn1uvg1.json
+2021-12-08 08:46:20,805 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflow__zjp7jp.json
+2021-12-08 08:53:09,386 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to pipe.json
+2021-12-08 08:54:53,250 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowe4i30hj1.json
+2021-12-08 09:20:31,435 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowy1xt3_la.json
+2021-12-08 09:20:34,658 - kedro_kubeflow.vertex_ai.client - INFO - Run created {'name': 'projects/957103578347/locations/europe-west4/pipelineJobs/test-repo-run', 'displayName': 'test-repo-run', 'createTime': '2021-12-08T09:20:33.294234Z', 'updateTime': '2021-12-08T09:20:33.294234Z', 'pipelineSpec': {'deploymentConfig': {'@type': 'type.googleapis.com/ml_pipelines.PipelineDeploymentConfig', 'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data && cp -r /home/kedro/data/* /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-validation': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "validation" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}, 'components': {'comp-data-acquisition': {'executorLabel': 'exec-data-acquisition'}, 'comp-data-volume-init': {'executorLabel': 'exec-data-volume-init'}, 'comp-feature-engineering': {'executorLabel': 'exec-feature-engineering'}, 'comp-model-training': {'executorLabel': 'exec-model-training'}, 'comp-train-test-split-fun': {'executorLabel': 'exec-train-test-split-fun'}, 'comp-validation': {'executorLabel': 'exec-validation'}}, 'schemaVersion': '2.0.0', 'root': {'dag': {'tasks': {'data-acquisition': {'taskInfo': {'name': 'data-acquisition'}, 'dependentTasks': ['data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-acquisition'}}, 'data-volume-init': {'taskInfo': {'name': 'data-volume-init'}, 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-volume-init'}}, 'feature-engineering': {'taskInfo': {'name': 'feature-engineering'}, 'dependentTasks': ['data-acquisition', 'data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-feature-engineering'}}, 'model-training': {'taskInfo': {'name': 'model-training'}, 'dependentTasks': ['data-volume-init', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-model-training'}}, 'train-test-split-fun': {'taskInfo': {'name': 'train-test-split-fun'}, 'dependentTasks': ['data-volume-init', 'feature-engineering'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-train-test-split-fun'}}, 'validation': {'taskInfo': {'name': 'validation'}, 'dependentTasks': ['data-volume-init', 'model-training', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-validation'}}}}}, 'sdkVersion': 'kfp-1.6.6', 'pipelineInfo': {'name': 'test-project'}, 'deploymentSpec': {'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data && cp -r /home/kedro/data/* /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-validation': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_poc_test_bucket/test_repo/test-repo-run/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "validation" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}}, 'state': 'PIPELINE_STATE_PENDING', 'runtimeConfig': {'gcsOutputDirectory': 'gs://data_check_poc_test_bucket'}, 'serviceAccount': 'kedro-kfp-runner@kedro-kubeflow-334417.iam.gserviceaccount.com'}
+2021-12-08 10:09:51,620 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowj1bq3k4s.json
+2021-12-08 10:10:37,324 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowcr5wa8bo.json
+2021-12-08 10:10:39,493 - kedro_kubeflow.vertex_ai.client - INFO - Run created {'name': 'projects/957103578347/locations/europe-west4/pipelineJobs/test-repo-run1', 'displayName': 'test-repo-run1', 'createTime': '2021-12-08T10:10:39.139703Z', 'updateTime': '2021-12-08T10:10:39.139703Z', 'pipelineSpec': {'deploymentConfig': {'@type': 'type.googleapis.com/ml_pipelines.PipelineDeploymentConfig', 'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}, 'components': {'comp-data-acquisition': {'executorLabel': 'exec-data-acquisition'}, 'comp-data-volume-init': {'executorLabel': 'exec-data-volume-init'}, 'comp-feature-engineering': {'executorLabel': 'exec-feature-engineering'}, 'comp-model-training': {'executorLabel': 'exec-model-training'}, 'comp-train-test-split-fun': {'executorLabel': 'exec-train-test-split-fun'}}, 'schemaVersion': '2.0.0', 'root': {'dag': {'tasks': {'data-acquisition': {'taskInfo': {'name': 'data-acquisition'}, 'dependentTasks': ['data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-acquisition'}}, 'data-volume-init': {'taskInfo': {'name': 'data-volume-init'}, 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-volume-init'}}, 'feature-engineering': {'taskInfo': {'name': 'feature-engineering'}, 'dependentTasks': ['data-acquisition', 'data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-feature-engineering'}}, 'model-training': {'taskInfo': {'name': 'model-training'}, 'dependentTasks': ['data-volume-init', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-model-training'}}, 'train-test-split-fun': {'taskInfo': {'name': 'train-test-split-fun'}, 'dependentTasks': ['data-volume-init', 'feature-engineering'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-train-test-split-fun'}}}}}, 'sdkVersion': 'kfp-1.6.6', 'pipelineInfo': {'name': 'test-project'}, 'deploymentSpec': {'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run1/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}}, 'state': 'PIPELINE_STATE_PENDING', 'runtimeConfig': {'gcsOutputDirectory': 'gs://data_check_cloud_vertex_ai_pipeline'}, 'serviceAccount': 'kedro-kfp-runner@kedro-kubeflow-334417.iam.gserviceaccount.com'}
+2021-12-08 12:16:24,202 - root - INFO - ** Kedro project kedro
+2021-12-08 12:16:25,520 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-08 12:16:25,542 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:16:25,543 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-08 12:16:26,723 - kedro.pipeline.node - INFO - Running node: data_acquisition: data_acquisition([diabetes,parameters]) -> [dataset]
+2021-12-08 12:16:26,747 - kedro.io.data_catalog - INFO - Saving data to `dataset` (CSVDataSet)...
+2021-12-08 12:16:27,557 - kedro.runner.sequential_runner - INFO - Completed 1 out of 4 tasks
+2021-12-08 12:16:27,557 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:16:27,557 - kedro.io.data_catalog - INFO - Loading data from `dataset` (CSVDataSet)...
+2021-12-08 12:16:28,393 - kedro.pipeline.node - INFO - Running node: feature_engineering: feature_engineering([dataset,parameters]) -> [cleaned_dataset]
+2021-12-08 12:16:28,396 - kedro.io.data_catalog - INFO - Saving data to `cleaned_dataset` (CSVDataSet)...
+2021-12-08 12:16:29,156 - kedro.runner.sequential_runner - INFO - Completed 2 out of 4 tasks
+2021-12-08 12:16:29,156 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:16:29,156 - kedro.io.data_catalog - INFO - Loading data from `cleaned_dataset` (CSVDataSet)...
+2021-12-08 12:16:29,998 - kedro.pipeline.node - INFO - Running node: train_test_split_fun: train_test_split_fun([cleaned_dataset,parameters]) -> [x_test,x_train,y_test,y_train]
+2021-12-08 12:16:30,002 - kedro.io.data_catalog - INFO - Saving data to `x_train` (CSVDataSet)...
+2021-12-08 12:16:30,774 - kedro.io.data_catalog - INFO - Saving data to `x_test` (CSVDataSet)...
+2021-12-08 12:16:31,530 - kedro.io.data_catalog - INFO - Saving data to `y_train` (CSVDataSet)...
+2021-12-08 12:16:32,306 - kedro.io.data_catalog - INFO - Saving data to `y_test` (CSVDataSet)...
+2021-12-08 12:16:33,093 - kedro.runner.sequential_runner - INFO - Completed 3 out of 4 tasks
+2021-12-08 12:16:33,094 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:16:33,094 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-08 12:16:33,932 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-08 12:16:34,754 - kedro.pipeline.node - INFO - Running node: model_training: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-08 12:16:34,981 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-08 12:16:35,808 - kedro.runner.sequential_runner - INFO - Completed 4 out of 4 tasks
+2021-12-08 12:16:35,809 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-08 12:16:35,809 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-08 12:17:38,376 - root - INFO - ** Kedro project kedro
+2021-12-08 12:17:39,635 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-08 12:17:39,655 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:17:39,656 - kedro.io.data_catalog - INFO - Loading data from `model` (PickleDataSet)...
+2021-12-08 12:17:40,472 - kedro.io.data_catalog - INFO - Loading data from `x_test` (CSVDataSet)...
+2021-12-08 12:17:41,288 - kedro.io.data_catalog - INFO - Loading data from `y_test` (CSVDataSet)...
+2021-12-08 12:17:42,120 - kedro.pipeline.node - INFO - Running node: validation: validation([model,parameters,x_test,y_test]) -> [metrics]
+2021-12-08 12:17:42,141 - kedro.io.data_catalog - INFO - Saving data to `metrics` (PickleDataSet)...
+2021-12-08 12:17:42,904 - kedro.runner.sequential_runner - INFO - Completed 1 out of 1 tasks
+2021-12-08 12:17:42,904 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-08 12:17:42,904 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-08 12:29:33,818 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowhmyi7jg1.json
+2021-12-08 12:29:35,958 - kedro_kubeflow.vertex_ai.client - INFO - Run created {'name': 'projects/957103578347/locations/europe-west4/pipelineJobs/test-repo-run123', 'displayName': 'test-repo-run123', 'createTime': '2021-12-08T12:29:35.604744Z', 'updateTime': '2021-12-08T12:29:35.604744Z', 'pipelineSpec': {'deploymentConfig': {'@type': 'type.googleapis.com/ml_pipelines.PipelineDeploymentConfig', 'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}, 'components': {'comp-data-acquisition': {'executorLabel': 'exec-data-acquisition'}, 'comp-data-volume-init': {'executorLabel': 'exec-data-volume-init'}, 'comp-feature-engineering': {'executorLabel': 'exec-feature-engineering'}, 'comp-model-training': {'executorLabel': 'exec-model-training'}, 'comp-train-test-split-fun': {'executorLabel': 'exec-train-test-split-fun'}}, 'schemaVersion': '2.0.0', 'root': {'dag': {'tasks': {'data-acquisition': {'taskInfo': {'name': 'data-acquisition'}, 'dependentTasks': ['data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-acquisition'}}, 'data-volume-init': {'taskInfo': {'name': 'data-volume-init'}, 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-volume-init'}}, 'feature-engineering': {'taskInfo': {'name': 'feature-engineering'}, 'dependentTasks': ['data-acquisition', 'data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-feature-engineering'}}, 'model-training': {'taskInfo': {'name': 'model-training'}, 'dependentTasks': ['data-volume-init', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-model-training'}}, 'train-test-split-fun': {'taskInfo': {'name': 'train-test-split-fun'}, 'dependentTasks': ['data-volume-init', 'feature-engineering'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-train-test-split-fun'}}}}}, 'sdkVersion': 'kfp-1.6.6', 'pipelineInfo': {'name': 'test-project'}, 'deploymentSpec': {'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline model_train --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}}, 'state': 'PIPELINE_STATE_PENDING', 'runtimeConfig': {'gcsOutputDirectory': 'gs://data_check_cloud_vertex_ai_pipeline'}, 'serviceAccount': 'kedro-kfp-runner@kedro-kubeflow-334417.iam.gserviceaccount.com'}
+2021-12-08 12:44:03,267 - root - INFO - ** Kedro project kedro
+2021-12-08 12:44:04,531 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-08 12:44:04,568 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:44:04,573 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-08 12:44:05,481 - kedro.pipeline.node - INFO - Running node: data_acquisition: data_acquisition([diabetes,parameters]) -> [dataset]
+2021-12-08 12:44:05,496 - kedro.io.data_catalog - INFO - Saving data to `dataset` (CSVDataSet)...
+2021-12-08 12:44:06,271 - kedro.runner.sequential_runner - INFO - Completed 1 out of 4 tasks
+2021-12-08 12:44:06,272 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:44:06,272 - kedro.io.data_catalog - INFO - Loading data from `dataset` (CSVDataSet)...
+2021-12-08 12:44:07,110 - kedro.pipeline.node - INFO - Running node: feature_engineering: feature_engineering([dataset,parameters]) -> [cleaned_dataset]
+2021-12-08 12:44:07,114 - kedro.io.data_catalog - INFO - Saving data to `cleaned_dataset` (CSVDataSet)...
+2021-12-08 12:44:07,907 - kedro.runner.sequential_runner - INFO - Completed 2 out of 4 tasks
+2021-12-08 12:44:07,908 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:44:07,908 - kedro.io.data_catalog - INFO - Loading data from `cleaned_dataset` (CSVDataSet)...
+2021-12-08 12:44:08,739 - kedro.pipeline.node - INFO - Running node: train_test_split_fun: train_test_split_fun([cleaned_dataset,parameters]) -> [x_test,x_train,y_test,y_train]
+2021-12-08 12:44:08,743 - kedro.io.data_catalog - INFO - Saving data to `x_train` (CSVDataSet)...
+2021-12-08 12:44:09,601 - kedro.io.data_catalog - INFO - Saving data to `x_test` (CSVDataSet)...
+2021-12-08 12:44:10,385 - kedro.io.data_catalog - INFO - Saving data to `y_train` (CSVDataSet)...
+2021-12-08 12:44:11,187 - kedro.io.data_catalog - INFO - Saving data to `y_test` (CSVDataSet)...
+2021-12-08 12:44:12,002 - kedro.runner.sequential_runner - INFO - Completed 3 out of 4 tasks
+2021-12-08 12:44:12,003 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-08 12:44:12,003 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-08 12:44:12,838 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-08 12:44:13,456 - kedro.pipeline.node - INFO - Running node: model_training: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-08 12:44:13,665 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-08 12:44:14,447 - kedro.runner.sequential_runner - INFO - Completed 4 out of 4 tasks
+2021-12-08 12:44:14,448 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-08 12:44:14,448 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-08 12:49:23,903 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to pipe.json
+2021-12-09 06:09:36,852 - root - INFO - ** Kedro project kedro
+2021-12-09 06:09:38,065 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-09 06:09:38,078 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-09 06:09:38,079 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-09 06:09:39,320 - kedro.pipeline.node - INFO - Running node: data_acquisition: data_acquisition([diabetes,parameters]) -> [dataset]
+2021-12-09 06:09:39,336 - kedro.io.data_catalog - INFO - Saving data to `dataset` (CSVDataSet)...
+2021-12-09 06:09:40,136 - kedro.runner.sequential_runner - INFO - Completed 1 out of 5 tasks
+2021-12-09 06:09:40,137 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-09 06:09:40,137 - kedro.io.data_catalog - INFO - Loading data from `dataset` (CSVDataSet)...
+2021-12-09 06:09:40,944 - kedro.pipeline.node - INFO - Running node: feature_engineering: feature_engineering([dataset,parameters]) -> [cleaned_dataset]
+2021-12-09 06:09:40,947 - kedro.io.data_catalog - INFO - Saving data to `cleaned_dataset` (CSVDataSet)...
+2021-12-09 06:09:41,745 - kedro.runner.sequential_runner - INFO - Completed 2 out of 5 tasks
+2021-12-09 06:09:41,745 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-09 06:09:41,745 - kedro.io.data_catalog - INFO - Loading data from `cleaned_dataset` (CSVDataSet)...
+2021-12-09 06:09:42,581 - kedro.pipeline.node - INFO - Running node: train_test_split_fun: train_test_split_fun([cleaned_dataset,parameters]) -> [x_test,x_train,y_test,y_train]
+2021-12-09 06:09:42,584 - kedro.io.data_catalog - INFO - Saving data to `x_train` (CSVDataSet)...
+2021-12-09 06:09:43,378 - kedro.io.data_catalog - INFO - Saving data to `x_test` (CSVDataSet)...
+2021-12-09 06:09:44,189 - kedro.io.data_catalog - INFO - Saving data to `y_train` (CSVDataSet)...
+2021-12-09 06:09:44,975 - kedro.io.data_catalog - INFO - Saving data to `y_test` (CSVDataSet)...
+2021-12-09 06:09:45,755 - kedro.runner.sequential_runner - INFO - Completed 3 out of 5 tasks
+2021-12-09 06:09:45,756 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-09 06:09:45,756 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-09 06:09:46,607 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-09 06:09:47,428 - kedro.pipeline.node - INFO - Running node: model_training: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-09 06:09:47,593 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-09 06:09:48,370 - kedro.runner.sequential_runner - INFO - Completed 4 out of 5 tasks
+2021-12-09 06:09:48,371 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-09 06:09:48,371 - kedro.io.data_catalog - INFO - Loading data from `model` (PickleDataSet)...
+2021-12-09 06:09:49,293 - kedro.io.data_catalog - INFO - Loading data from `x_test` (CSVDataSet)...
+2021-12-09 06:09:50,091 - kedro.io.data_catalog - INFO - Loading data from `y_test` (CSVDataSet)...
+2021-12-09 06:09:50,896 - kedro.pipeline.node - INFO - Running node: validation: validation([model,parameters,x_test,y_test]) -> [metrics]
+2021-12-09 06:09:50,914 - kedro.io.data_catalog - INFO - Saving data to `metrics` (PickleDataSet)...
+2021-12-09 06:09:51,674 - kedro.runner.sequential_runner - INFO - Completed 5 out of 5 tasks
+2021-12-09 06:09:51,675 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-09 06:09:51,675 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-09 06:42:27,497 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowhaito090.json
+2021-12-09 06:42:27,501 - googleapiclient.discovery - INFO - URL being requested: POST https://europe-west4-aiplatform.googleapis.com/v1beta1/projects/kedro-kubeflow-334417/locations/europe-west4/pipelineJobs?pipelineJobId=test-repo-run123&alt=json
+2021-12-09 07:12:37,787 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflow7v_3m51f.json
+2021-12-09 07:12:37,792 - googleapiclient.discovery - INFO - URL being requested: POST https://europe-west4-aiplatform.googleapis.com/v1beta1/projects/kedro-kubeflow-334417/locations/europe-west4/pipelineJobs?pipelineJobId=test-repo-run123&alt=json
+2021-12-15 12:51:50,936 - root - INFO - ** Kedro project kedro
+2021-12-15 12:51:51,831 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-15 12:52:06,985 - root - INFO - ** Kedro project kedro
+2021-12-15 12:52:08,051 - google.auth._default - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2021-12-15 12:52:08,062 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-15 12:52:08,063 - kedro.io.data_catalog - INFO - Loading data from `diabetes` (CSVDataSet)...
+2021-12-15 12:52:08,998 - kedro.pipeline.node - INFO - Running node: data_acquisition: data_acquisition([diabetes,parameters]) -> [dataset]
+2021-12-15 12:52:09,014 - kedro.io.data_catalog - INFO - Saving data to `dataset` (CSVDataSet)...
+2021-12-15 12:52:09,883 - kedro.runner.sequential_runner - INFO - Completed 1 out of 4 tasks
+2021-12-15 12:52:09,883 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-15 12:52:09,883 - kedro.io.data_catalog - INFO - Loading data from `dataset` (CSVDataSet)...
+2021-12-15 12:52:10,518 - kedro.pipeline.node - INFO - Running node: feature_engineering: feature_engineering([dataset,parameters]) -> [cleaned_dataset]
+2021-12-15 12:52:10,521 - kedro.io.data_catalog - INFO - Saving data to `cleaned_dataset` (CSVDataSet)...
+2021-12-15 12:52:11,309 - kedro.runner.sequential_runner - INFO - Completed 2 out of 4 tasks
+2021-12-15 12:52:11,309 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-15 12:52:11,310 - kedro.io.data_catalog - INFO - Loading data from `cleaned_dataset` (CSVDataSet)...
+2021-12-15 12:52:12,155 - kedro.pipeline.node - INFO - Running node: train_test_split_fun: train_test_split_fun([cleaned_dataset,parameters]) -> [x_test,x_train,y_test,y_train]
+2021-12-15 12:52:12,158 - kedro.io.data_catalog - INFO - Saving data to `x_train` (CSVDataSet)...
+2021-12-15 12:52:12,919 - kedro.io.data_catalog - INFO - Saving data to `x_test` (CSVDataSet)...
+2021-12-15 12:52:13,729 - kedro.io.data_catalog - INFO - Saving data to `y_train` (CSVDataSet)...
+2021-12-15 12:52:14,506 - kedro.io.data_catalog - INFO - Saving data to `y_test` (CSVDataSet)...
+2021-12-15 12:52:15,333 - kedro.runner.sequential_runner - INFO - Completed 3 out of 4 tasks
+2021-12-15 12:52:15,333 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...
+2021-12-15 12:52:15,335 - kedro.io.data_catalog - INFO - Loading data from `x_train` (CSVDataSet)...
+2021-12-15 12:52:16,163 - kedro.io.data_catalog - INFO - Loading data from `y_train` (CSVDataSet)...
+2021-12-15 12:52:16,965 - kedro.pipeline.node - INFO - Running node: model_training: model_training([parameters,x_train,y_train]) -> [model]
+2021-12-15 12:52:17,129 - kedro.io.data_catalog - INFO - Saving data to `model` (PickleDataSet)...
+2021-12-15 12:52:17,979 - kedro.runner.sequential_runner - INFO - Completed 4 out of 4 tasks
+2021-12-15 12:52:17,979 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.
+2021-12-15 12:52:17,979 - kedro.framework.session.store - INFO - `save()` not implemented for `BaseSessionStore`. Skipping the step.
+2021-12-15 13:01:48,534 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflowe2n3jgfl.json
+2021-12-15 13:01:50,915 - kedro_kubeflow.vertex_ai.client - INFO - Run created {'name': 'projects/957103578347/locations/us-central1/pipelineJobs/test-repo-run123', 'displayName': 'test-repo-run123', 'createTime': '2021-12-15T13:01:49.821126Z', 'updateTime': '2021-12-15T13:01:49.821126Z', 'pipelineSpec': {'deploymentConfig': {'@type': 'type.googleapis.com/ml_pipelines.PipelineDeploymentConfig', 'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-validation': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "validation" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}, 'components': {'comp-data-acquisition': {'executorLabel': 'exec-data-acquisition'}, 'comp-data-volume-init': {'executorLabel': 'exec-data-volume-init'}, 'comp-feature-engineering': {'executorLabel': 'exec-feature-engineering'}, 'comp-model-training': {'executorLabel': 'exec-model-training'}, 'comp-train-test-split-fun': {'executorLabel': 'exec-train-test-split-fun'}, 'comp-validation': {'executorLabel': 'exec-validation'}}, 'schemaVersion': '2.0.0', 'root': {'dag': {'tasks': {'data-acquisition': {'taskInfo': {'name': 'data-acquisition'}, 'dependentTasks': ['data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-acquisition'}}, 'data-volume-init': {'taskInfo': {'name': 'data-volume-init'}, 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-volume-init'}}, 'feature-engineering': {'taskInfo': {'name': 'feature-engineering'}, 'dependentTasks': ['data-acquisition', 'data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-feature-engineering'}}, 'model-training': {'taskInfo': {'name': 'model-training'}, 'dependentTasks': ['data-volume-init', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-model-training'}}, 'train-test-split-fun': {'taskInfo': {'name': 'train-test-split-fun'}, 'dependentTasks': ['data-volume-init', 'feature-engineering'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-train-test-split-fun'}}, 'validation': {'taskInfo': {'name': 'validation'}, 'dependentTasks': ['data-volume-init', 'model-training', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-validation'}}}}}, 'sdkVersion': 'kfp-1.6.6', 'pipelineInfo': {'name': 'test-project'}, 'deploymentSpec': {'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-validation': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "validation" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}}, 'state': 'PIPELINE_STATE_PENDING', 'runtimeConfig': {'gcsOutputDirectory': 'gs://data_check_cloud_vertex_ai_pipeline'}, 'serviceAccount': '957103578347-compute@developer.gserviceaccount.com'}
+2021-12-15 13:03:39,209 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflow7ggpshn5.json
+2021-12-15 13:04:10,373 - kedro_kubeflow.vertex_ai.client - INFO - Generated pipeline definition was saved to /tmp/kedro-kubeflow31qjmanc.json
+2021-12-15 13:04:11,938 - kedro_kubeflow.vertex_ai.client - INFO - Run created {'name': 'projects/957103578347/locations/us-central1/pipelineJobs/test-repo-run12', 'displayName': 'test-repo-run12', 'createTime': '2021-12-15T13:04:11.636941Z', 'updateTime': '2021-12-15T13:04:11.636941Z', 'pipelineSpec': {'deploymentConfig': {'@type': 'type.googleapis.com/ml_pipelines.PipelineDeploymentConfig', 'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-validation': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "validation" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}, 'components': {'comp-data-acquisition': {'executorLabel': 'exec-data-acquisition'}, 'comp-data-volume-init': {'executorLabel': 'exec-data-volume-init'}, 'comp-feature-engineering': {'executorLabel': 'exec-feature-engineering'}, 'comp-model-training': {'executorLabel': 'exec-model-training'}, 'comp-train-test-split-fun': {'executorLabel': 'exec-train-test-split-fun'}, 'comp-validation': {'executorLabel': 'exec-validation'}}, 'schemaVersion': '2.0.0', 'root': {'dag': {'tasks': {'data-acquisition': {'taskInfo': {'name': 'data-acquisition'}, 'dependentTasks': ['data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-acquisition'}}, 'data-volume-init': {'taskInfo': {'name': 'data-volume-init'}, 'cachingOptions': {}, 'componentRef': {'name': 'comp-data-volume-init'}}, 'feature-engineering': {'taskInfo': {'name': 'feature-engineering'}, 'dependentTasks': ['data-acquisition', 'data-volume-init'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-feature-engineering'}}, 'model-training': {'taskInfo': {'name': 'model-training'}, 'dependentTasks': ['data-volume-init', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-model-training'}}, 'train-test-split-fun': {'taskInfo': {'name': 'train-test-split-fun'}, 'dependentTasks': ['data-volume-init', 'feature-engineering'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-train-test-split-fun'}}, 'validation': {'taskInfo': {'name': 'validation'}, 'dependentTasks': ['data-volume-init', 'model-training', 'train-test-split-fun'], 'cachingOptions': {}, 'componentRef': {'name': 'comp-validation'}}}}}, 'sdkVersion': 'kfp-1.6.6', 'pipelineInfo': {'name': 'test-project'}, 'deploymentSpec': {'executors': {'exec-data-acquisition': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "data_acquisition" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-data-volume-init': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': ['mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data']}}, 'exec-feature-engineering': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "feature_engineering" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-model-training': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "model_training" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-train-test-split-fun': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "train_test_split_fun" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}, 'exec-validation': {'container': {'image': 'gcr.io/kedro-kubeflow-334417/test_repo:latest', 'command': ['/bin/bash', '-c'], 'args': [' rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run12/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node "validation" '], 'resources': {'cpuLimit': 0.5, 'memoryLimit': 0.536870912}}}}}}, 'state': 'PIPELINE_STATE_PENDING', 'runtimeConfig': {'gcsOutputDirectory': 'gs://data_check_cloud_vertex_ai_pipeline'}, 'serviceAccount': 'kedro-kfp-runner@kedro-kubeflow-334417.iam.gserviceaccount.com'}

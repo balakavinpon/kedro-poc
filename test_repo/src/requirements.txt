@@ -18,3 +18,5 @@ kedro-docker
 pandas
 scikit-learn
 gcsfs
+google-cloud-scheduler
+protobuf<3.18.0

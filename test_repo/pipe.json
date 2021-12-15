@@ -1,0 +1,218 @@
+{
+  "pipelineSpec": {
+    "components": {
+      "comp-data-acquisition": {
+        "executorLabel": "exec-data-acquisition"
+      },
+      "comp-data-volume-init": {
+        "executorLabel": "exec-data-volume-init"
+      },
+      "comp-feature-engineering": {
+        "executorLabel": "exec-feature-engineering"
+      },
+      "comp-model-training": {
+        "executorLabel": "exec-model-training"
+      },
+      "comp-train-test-split-fun": {
+        "executorLabel": "exec-train-test-split-fun"
+      },
+      "comp-validation": {
+        "executorLabel": "exec-validation"
+      }
+    },
+    "deploymentSpec": {
+      "executors": {
+        "exec-data-acquisition": {
+          "container": {
+            "args": [
+              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"data_acquisition\" "
+            ],
+            "command": [
+              "/bin/bash",
+              "-c"
+            ],
+            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "resources": {
+              "cpuLimit": 0.5,
+              "memoryLimit": 0.536870912
+            }
+          }
+        },
+        "exec-data-volume-init": {
+          "container": {
+            "args": [
+              "mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data"
+            ],
+            "command": [
+              "/bin/bash",
+              "-c"
+            ],
+            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest"
+          }
+        },
+        "exec-feature-engineering": {
+          "container": {
+            "args": [
+              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"feature_engineering\" "
+            ],
+            "command": [
+              "/bin/bash",
+              "-c"
+            ],
+            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "resources": {
+              "cpuLimit": 0.5,
+              "memoryLimit": 0.536870912
+            }
+          }
+        },
+        "exec-model-training": {
+          "container": {
+            "args": [
+              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"model_training\" "
+            ],
+            "command": [
+              "/bin/bash",
+              "-c"
+            ],
+            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "resources": {
+              "cpuLimit": 0.5,
+              "memoryLimit": 0.536870912
+            }
+          }
+        },
+        "exec-train-test-split-fun": {
+          "container": {
+            "args": [
+              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"train_test_split_fun\" "
+            ],
+            "command": [
+              "/bin/bash",
+              "-c"
+            ],
+            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "resources": {
+              "cpuLimit": 0.5,
+              "memoryLimit": 0.536870912
+            }
+          }
+        },
+        "exec-validation": {
+          "container": {
+            "args": [
+              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"validation\" "
+            ],
+            "command": [
+              "/bin/bash",
+              "-c"
+            ],
+            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "resources": {
+              "cpuLimit": 0.5,
+              "memoryLimit": 0.536870912
+            }
+          }
+        }
+      }
+    },
+    "pipelineInfo": {
+      "name": "test-project"
+    },
+    "root": {
+      "dag": {
+        "tasks": {
+          "data-acquisition": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-data-acquisition"
+            },
+            "dependentTasks": [
+              "data-volume-init"
+            ],
+            "taskInfo": {
+              "name": "data-acquisition"
+            }
+          },
+          "data-volume-init": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-data-volume-init"
+            },
+            "taskInfo": {
+              "name": "data-volume-init"
+            }
+          },
+          "feature-engineering": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-feature-engineering"
+            },
+            "dependentTasks": [
+              "data-acquisition",
+              "data-volume-init"
+            ],
+            "taskInfo": {
+              "name": "feature-engineering"
+            }
+          },
+          "model-training": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-model-training"
+            },
+            "dependentTasks": [
+              "data-volume-init",
+              "train-test-split-fun"
+            ],
+            "taskInfo": {
+              "name": "model-training"
+            }
+          },
+          "train-test-split-fun": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-train-test-split-fun"
+            },
+            "dependentTasks": [
+              "data-volume-init",
+              "feature-engineering"
+            ],
+            "taskInfo": {
+              "name": "train-test-split-fun"
+            }
+          },
+          "validation": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-validation"
+            },
+            "dependentTasks": [
+              "data-volume-init",
+              "model-training",
+              "train-test-split-fun"
+            ],
+            "taskInfo": {
+              "name": "validation"
+            }
+          }
+        }
+      }
+    },
+    "schemaVersion": "2.0.0",
+    "sdkVersion": "kfp-1.6.6"
+  },
+  "runtimeConfig": {}
+}

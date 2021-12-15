@@ -4,36 +4,36 @@
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
 diabetes:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/01_raw/diabetes.csv
+  filepath: gs://data_check_poc_test_bucket/data/01_raw/diabetes.csv
 
 dataset:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/raw_dataset.csv
+  filepath: gs://data_check_poc_test_bucket/data/output/raw_dataset.csv
 
 cleaned_dataset:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/cleaned_data.csv
+  filepath: gs://data_check_poc_test_bucket/data/output/cleaned_data.csv
     
 x_train:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/x_train.csv
+  filepath: gs://data_check_poc_test_bucket/data/output/x_train.csv
     
 y_train:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/y_train.csv
+  filepath: gs://data_check_poc_test_bucket/data/output/y_train.csv
   
 x_test:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/x_test.csv
+  filepath: gs://data_check_poc_test_bucket/data/output/x_test.csv
     
 y_test:
   type: pandas.CSVDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/y_test.csv
+  filepath: gs://data_check_poc_test_bucket/data/output/y_test.csv
     
 model:
   type: pickle.PickleDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/model.pkl
+  filepath: gs://data_check_poc_test_bucket/data/output/model.pkl
     
 metrics:
   type: pickle.PickleDataSet
-  filepath: gs://kedro-poc-bala-test-bucket/data/output/metrics.pkl
+  filepath: gs://data_check_poc_test_bucket/data/output/metrics.pkl

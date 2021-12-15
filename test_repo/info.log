@@ -245,3 +245,214 @@
 2021-12-06 21:25:23,174 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
 2021-12-06 21:25:23,714 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
 2021-12-06 21:25:23,778 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-07 17:40:20,070 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-07 17:40:20,134 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:40:20,844 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:43:34,778 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-07 17:43:34,842 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:43:35,583 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:46:48,692 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-07 17:46:48,752 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:46:49,489 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:47:14,787 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-07 17:47:14,849 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:47:15,584 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-07 17:47:15,654 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 04:56:06,348 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 04:56:06,619 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 04:56:07,576 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 04:56:07,672 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 05:06:32,306 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:06:32,372 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:06:33,088 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:06:33,164 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 05:09:46,670 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:09:46,733 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:09:47,466 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:09:47,533 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 05:24:24,001 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:24:24,062 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:26:01,377 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:26:01,460 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:26:06,205 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:26:06,270 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:26:14,984 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:26:15,049 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:26:38,929 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:26:38,995 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:00,553 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:28:00,614 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:01,406 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:10,496 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:28:10,562 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:11,294 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:11,364 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 05:28:49,655 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:28:49,723 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:50,443 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:28:50,516 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 05:29:33,312 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:29:33,375 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:29:34,076 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:30:57,532 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:30:57,596 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:30:58,308 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:30:58,382 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 05:31:50,727 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 05:31:50,793 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:31:51,537 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 05:31:51,619 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 08:36:04,887 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:36:05,262 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:36:06,301 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:36:06,379 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 08:36:56,681 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:36:56,745 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:36:57,416 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:36:57,483 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 08:46:16,185 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:46:16,277 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:46:17,057 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:46:17,122 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 08:49:47,912 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:49:47,972 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:49:48,653 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:52:12,430 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:52:12,487 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:52:13,214 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:52:13,278 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 08:52:42,720 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:52:42,781 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:52:43,498 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:53:05,194 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:53:05,252 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:53:05,904 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:53:05,974 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 08:54:45,470 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:54:45,554 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:54:46,214 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:54:49,197 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 08:54:49,252 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:54:49,910 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 08:54:49,979 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 09:20:27,396 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 09:20:27,458 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 09:20:28,118 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 09:20:28,183 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 09:35:20,319 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 09:35:20,375 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 09:35:21,059 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:08:18,596 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 10:08:18,661 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:08:19,291 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:08:25,177 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 10:08:25,237 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:08:25,959 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:09:47,651 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 10:09:47,708 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:09:48,369 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:09:48,440 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 10:10:04,861 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 10:10:04,946 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:10:05,615 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:10:33,194 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 10:10:33,255 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:10:33,917 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 10:10:33,993 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 11:54:35,033 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 11:54:35,096 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 11:54:35,748 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:03:13,260 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:03:13,328 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:03:13,975 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:03:57,729 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:03:57,787 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:03:58,437 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:16:20,540 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:16:20,606 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:16:21,320 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:17:34,770 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:17:34,828 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:17:35,535 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:21:32,181 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:21:32,238 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:21:32,918 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:21:33,002 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 12:28:50,743 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:28:50,808 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:28:51,483 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:29:29,670 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:29:29,725 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:29:30,409 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:29:30,475 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 12:43:59,623 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:43:59,686 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:44:00,372 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:48:28,038 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:48:28,097 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:48:28,784 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:48:50,338 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:48:50,434 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:48:51,086 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:49:04,086 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:49:04,144 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:49:04,883 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:49:04,971 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-08 12:49:19,664 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-08 12:49:19,731 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:49:20,372 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-08 12:49:20,437 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-09 05:58:18,429 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 05:58:18,506 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 05:58:19,151 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 05:58:33,212 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 05:58:33,272 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 05:58:33,933 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:09:33,785 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 06:09:33,845 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:09:34,496 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:18:50,408 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 06:18:50,465 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:18:51,089 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:18:51,174 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-09 06:42:25,171 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 06:42:25,230 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:42:25,863 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:42:25,927 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-09 06:43:00,944 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 06:43:01,004 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 06:43:01,650 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 07:12:35,390 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-09 07:12:35,449 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 07:12:36,130 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-09 07:12:36,200 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-15 12:39:52,995 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 12:39:53,274 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:39:53,957 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:42:01,810 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 12:42:01,868 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:42:02,499 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:51:48,042 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 12:51:48,097 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:51:48,733 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:52:04,153 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 12:52:04,208 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 12:52:04,826 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:05,049 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 13:01:05,105 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:05,742 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:27,269 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 13:01:27,327 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:27,954 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:38,726 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 13:01:38,781 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:39,410 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:01:39,549 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-15 13:03:37,011 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 13:03:37,067 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:03:37,688 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:03:37,753 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2021-12-15 13:04:08,141 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
+2021-12-15 13:04:08,196 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:04:08,815 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.3
+2021-12-15 13:04:08,880 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
