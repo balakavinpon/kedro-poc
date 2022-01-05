@@ -32,9 +32,15 @@ generated using Kedro 0.17.4
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+import os
 
 def data_acquisition(params):
-    data = pd.read_csv(r"/mnt/kedro-poc/diabetes.csv")
+    url = os.getcwd()
+    before = url.split('kedro-poc')[0]
+    print("before",before)
+    final=before+"kedro-poc/diabetes.csv"
+    print("final",final)
+    data = pd.read_csv(r"{}".format(final))
     raw_data = data
     return raw_data 
 

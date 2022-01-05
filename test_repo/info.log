@@ -42,3 +42,23 @@
 2021-11-27 11:15:28,627 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
 2021-11-27 11:16:27,007 - root - INFO - Registered hooks from 1 installed plugin(s): kedro-kubeflow-0.4.4
 2021-11-27 11:16:27,586 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:21:24,236 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:21:26,616 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:26:09,552 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:26:11,893 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:26:21,938 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:26:24,250 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:28:38,497 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:28:40,891 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:29:13,883 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:29:15,959 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:29:34,731 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:29:37,106 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:30:43,157 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:30:45,207 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:34:27,896 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:34:31,358 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:53:22,840 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:53:25,216 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-01-05 14:54:08,711 - kedro_telemetry.plugin - INFO - You have opted into product usage analytics.
+2022-01-05 14:54:10,955 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
