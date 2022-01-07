@@ -1,15 +1,19 @@
 from airflow import DAG
+from datetime import timedelta
 from airflow.utils.dates import days_ago
 from airflow.providers.google.cloud.operators.dataproc import  DataprocCreateClusterOperator
 from airflow.providers.google.cloud.operators.dataproc import DataprocSubmitJobOperator
+from airflow.providers.google.cloud.operators.dataproc import DataprocDeleteClusterOperator
 
 default_args = {
     'depends_on_past': False   
 }
-CLUSTER_NAME = 'test-cluster'
+
+CLUSTER_NAME = 'airflow-cluster'
 REGION='us-central1'
 PROJECT_ID='bionic-spot-337303'
-PYSPARK_URI='gs://demo_scripts/scripts/main.py'   
+PYSPARK_URI='gs://demo_scripts/pyspark_demo.py'   
+
 
 CLUSTER_CONFIG = {
     "master_config": {
@@ -33,7 +37,7 @@ PYSPARK_JOB = {
 }
 
 with DAG(
-    'Kedro-POC',
+    'kedro-on-gcp',
     default_args=default_args,
     description='A simple DAG to create a Dataproc workflow',
     schedule_interval=None,
@@ -54,5 +58,13 @@ with DAG(
         location=REGION, 
         project_id=PROJECT_ID
     )
-    
-    create_cluster >> submit_job
+
+    delete_cluster = DataprocDeleteClusterOperator(
+        task_id="delete_cluster", 
+        project_id=PROJECT_ID, 
+        cluster_name=CLUSTER_NAME, 
+        region=REGION
+    )
+
+
+    create_cluster >> submit_job >> delete_cluster
