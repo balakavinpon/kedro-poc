@@ -31,10 +31,29 @@ generated using Kedro 0.17.4
 """
 
 
-from sklearn.metrics import accuracy_score
+from google.cloud import bigquery
 
-def validation(params, rc, X_test, y_test):
-    y_pred = rc.predict(X_test)
-    metrics = accuracy_score(y_test,y_pred)
-    print("Metrics = ",metrics)
+def model_evaluate(params):
+    client = bigquery.Client(project=f"{params['project_id']}",location="US")
+    QUERY = f"""
+            SELECT * FROM 
+            ML.EVALUATE(MODEL {params['database']}.{params['model_name']},
+                          (SELECT * FROM {params['database']}.{params['table']}))
+            """
+    evaluate = client.query(QUERY)
+    metrics = evaluate.to_dataframe()
+    print("**********  METRICS  *************")
+    print(metrics)
+    print("**********  METRICS  *************")
     return metrics
+
+def model_predict(params):
+    client = bigquery.Client(project=f"{params['project_id']}",location="US")
+    QUERY = f"""
+            SELECT * FROM 
+            ML.PREDICT(MODEL {params['database']}.{params['model_name']},
+                        (SELECT * FROM {params['database']}.{params['table']}))
+            """
+    predict = client.query(QUERY)
+    pred_df = predict.to_dataframe()
+    return pred_df

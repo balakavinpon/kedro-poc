@@ -36,21 +36,17 @@ from functools import update_wrapper, partial
 from pkg.pipelines.model_training.nodes import (
     data_acquisition,
     feature_engineering,
-    train_test_split_fun,
-    model_training)
+    create_model)
 
 def create_pipeline(**kwargs):
     model_training_pipeline = Pipeline([node(data_acquisition,
-                                  inputs='parameters',
-                                  outputs='dataset'),
+                                  inputs='parameters',           
+                                  outputs='diabetes'),
                      node(feature_engineering,
-                                 inputs=['parameters','dataset'],
+                                 inputs='parameters',
                                  outputs='cleaned_dataset'),
-                    node(train_test_split_fun,
-                                 inputs=['parameters','cleaned_dataset'],
-                                 outputs=['x_train','x_test','y_train','y_test']),
-                     node(model_training,
-                                 inputs=['parameters','x_train', 'y_train'],
-                                 outputs='model'),
-                                    ])
+                     node(create_model,
+                                 inputs='parameters',             
+                                 outputs='train_info'),
+                            ])
     return model_training_pipeline

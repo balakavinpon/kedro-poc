@@ -4,4 +4,7 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://kedro.readthedocs.io/en/0.17.4/04_kedro_project_setup/02_configuration.html#parameters
 
-ratio: 0.3
+project_id : 'kedro-kubeflow-334417'
+database : 'autotraining'
+table : 'diabetes'
+model_name : 'bqmodel'

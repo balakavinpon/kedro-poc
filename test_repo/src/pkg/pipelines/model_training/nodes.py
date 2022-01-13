@@ -29,30 +29,38 @@
 This is a boilerplate pipeline 'model_training'
 generated using Kedro 0.17.4
 """
+from google.cloud import bigquery
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from kedro.io import DataCatalog, MemoryDataSet
 
-def data_acquisition(params, data):
-    #data = pd.read_csv(r"data/01_raw/diabetes.csv")
-    raw_data = data
-    print(data.loc[[1]])
-    return raw_data 
+def data_acquisition(params):
+    client = bigquery.Client(project=f"{params['project_id']}",location="US")
+    dataset = client.create_dataset(f"{params['database']}", exists_ok=True)
+    QUERY = f"""
+            SELECT * FROM {params['database']}.{params['table']}
+            """
+    raw_data = client.query(QUERY).to_dataframe()
+    return raw_data
 
-def feature_engineering(params, raw_data):
-    df = raw_data
+def feature_engineering(params):
+    client = bigquery.Client(project=f"{params['project_id']}",location="US")
+    QUERY = f"""SELECT * FROM {params['database']}.{params['table']}"""
+    df = client.query(QUERY).to_dataframe()
     df1 = df.dropna()
     cleaned_data = df1
+    cleaned_data.head()
     return cleaned_data
 
-def train_test_split_fun(params, cleaned_data):
-    value = params['ratio']
-    training_data = cleaned_data.drop('Outcome',axis=1)
-    testing_data = cleaned_data['Outcome']
-    X_train, X_test, y_train, y_test = train_test_split(training_data, testing_data, test_size = value, random_state=42)
-    return X_train, X_test, y_train, y_test
-
-def model_training(params, X_train, y_train):
-    rc = RandomForestClassifier(max_depth=2, random_state=0)
-    model = rc.fit(X_train, y_train)
-    return model
+def create_model(params):
+    client = bigquery.Client(project=f"{params['project_id']}",location="US")
+    QUERY = f"""
+        CREATE MODEL IF NOT EXISTS `{params['database']}.{params['model_name']}`
+        OPTIONS (model_type='logistic_reg', input_label_cols=["Outcome"]) AS SELECT *
+        FROM
+        {params['database']}.{params['table']}
+    """
+    query_job = client.query(QUERY)
+    results = query_job.result()
+    input_ml_eval_data = pd.DataFrame({'state': 'ready'}, index=[0])
+    input_ml_eval = MemoryDataSet(data=input_ml_eval_data)
+    return input_ml_eval

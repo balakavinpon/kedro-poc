@@ -33,11 +33,14 @@ generated using Kedro 0.17.4
 
 from kedro.pipeline import Pipeline, node
 from functools import update_wrapper, partial
-from pkg.pipelines.model_scoring.nodes import (validation)
+from pkg.pipelines.model_scoring.nodes import (model_evaluate,model_predict)
 
 def create_pipeline(**kwargs):
-    model_scoring_pipeline = Pipeline([node(validation,
-                                 inputs=['parameters','model','x_test','y_test'],
-                                 outputs='metrics')
+    model_scoring_pipeline = Pipeline([node(model_evaluate,
+                                 inputs='parameters',
+                                 outputs='metrics'),
+                     node(model_predict,
+                                 inputs='parameters',
+                                 outputs='pred_df')
                                        ])
     return model_scoring_pipeline

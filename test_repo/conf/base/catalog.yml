@@ -3,37 +3,35 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
 diabetes:
-  type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/01_raw/diabetes.csv
+  type: pandas.GBQTableDataSet
+  dataset: autotraining
+  table_name: diabetes
+  save_args:
+      if_exists: replace
 
-dataset:
+raw_data:
   type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/raw_dataset.csv
-
-cleaned_dataset:
-  type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/cleaned_data.csv
-    
-x_train:
-  type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/x_train.csv
-    
-y_train:
-  type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/y_train.csv
+  filepath: gcs://kedro-files-bucket/output/raw_dataset.csv
+  layer: raw
   
-x_test:
-  type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/x_test.csv
+cleaned_dataset:
+  type: pandas.GBQTableDataSet
+  dataset: autotraining
+  table_name: filtered_data
+  save_args:
+      if_exists: replace
     
-y_test:
-  type: pandas.CSVDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/y_test.csv
-    
-model:
-  type: pickle.PickleDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/model.pkl
+#model_build:
+#  type: pickle.PickleDataSet
+#  filepath: gs://kedro-files-bucket/output/model_bq.pkl
     
 metrics:
-  type: pickle.PickleDataSet
-  filepath: gs://data_check_poc_test_bucket/data/output/metrics.pkl
+  type: pandas.GBQTableDataSet
+  dataset: autotraining
+  table_name: metrics
+  save_args:
+      if_exists: replace
+      
+#pred_df:
+#  type: pandas.CSVDataSet
+#  filepath: gs://kedro-files-bucket/output/predictions.csv
