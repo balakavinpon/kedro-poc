@@ -49,3 +49,4 @@ HOOKS = (ProjectHooks(),)
 
 # Define the configuration folder. Defaults to `conf`
 # CONF_ROOT = "conf"
+

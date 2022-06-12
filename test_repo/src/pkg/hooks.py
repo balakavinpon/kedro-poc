@@ -33,6 +33,7 @@ from kedro.config import ConfigLoader
 from kedro.framework.hooks import hook_impl
 from kedro.io import DataCatalog
 from kedro.versioning import Journal
+from kedro.config import TemplatedConfigLoader
 
 
 class ProjectHooks:
@@ -40,7 +41,11 @@ class ProjectHooks:
     def register_config_loader(
         self, conf_paths: Iterable[str], env: str, extra_params: Dict[str, Any],
     ) -> ConfigLoader:
-        return ConfigLoader(conf_paths)
+        return TemplatedConfigLoader(
+            conf_paths,
+            globals_pattern="*globals.yml",
+            globals_dict={"param1": "pandas.CSVDataSet"}
+        )
 
     @hook_impl
     def register_catalog(

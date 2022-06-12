@@ -1,0 +1,4 @@
+gcp_project: "dataproc-serverless-351706"
+gcs_input_data_bucket: "gs://dataproc-serverless-351706-kedro-poc"
+gcs_temp_data_bucket: "gs://dataproc-serverless-351706-kedro-poc/data"
+
