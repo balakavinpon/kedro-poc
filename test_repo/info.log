@@ -476,3 +476,45 @@
 2022-06-12 23:26:48,898 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
 2022-06-12 23:26:49,577 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
 2022-06-12 23:26:49,651 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-12 23:45:30,957 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-12 23:45:30,970 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:45:31,823 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:45:31,916 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-12 23:49:18,362 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-12 23:49:18,377 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:49:19,250 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:49:19,326 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-12 23:50:16,669 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-12 23:50:16,681 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:50:17,466 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:57:17,176 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-12 23:57:17,190 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:57:18,061 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-12 23:57:18,138 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-13 00:02:33,848 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-13 00:02:33,861 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-13 00:02:34,734 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-13 00:05:40,895 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-13 00:05:40,912 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-13 00:05:41,826 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-13 00:05:41,901 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 14:55:50,877 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 14:55:50,891 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 14:55:51,634 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 14:55:51,709 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 14:57:44,091 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 14:57:44,103 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 14:57:44,820 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 14:57:44,895 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 15:30:40,086 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:30:40,101 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:30:40,934 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:30:41,015 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 15:31:13,156 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:31:13,167 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:31:13,891 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:31:13,965 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 15:34:25,830 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:34:25,845 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:34:26,683 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:34:26,764 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.

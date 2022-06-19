@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest', '.' ]
+images:
+- 'us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest'

@@ -21,6 +21,9 @@ source venv-kedro/bin/activate
 cd kedro-poc/test-repo
 pip install -r src/requirements.txt 
 
+export KEDRO_CONFIG_RUN_ID="234"
+
+export KEDRO_GLOBALS_PATTERN="*globals.yml"
 
 ## To build the docker image 
 
