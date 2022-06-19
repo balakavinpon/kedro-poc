@@ -518,3 +518,18 @@
 2022-06-19 15:34:25,845 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
 2022-06-19 15:34:26,683 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
 2022-06-19 15:34:26,764 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 15:42:53,311 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:42:53,324 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:42:54,207 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:42:54,283 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 15:51:39,939 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:51:39,953 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:51:40,845 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:51:40,921 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.
+2022-06-19 15:52:35,497 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:52:35,510 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:52:36,418 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:53:30,695 - root - INFO - Registered hooks from 2 installed plugin(s): kedro-vertexai-0.4.1
+2022-06-19 15:53:30,706 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:53:31,494 - root - INFO - Registered CLI hooks from 1 installed plugin(s): kedro-telemetry-0.1.4
+2022-06-19 15:53:31,574 - kedro.framework.session.store - INFO - `read()` not implemented for `BaseSessionStore`. Assuming empty store.

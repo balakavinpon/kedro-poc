@@ -1219,3 +1219,5 @@ You can resume the pipeline run by adding the following argument to your previou
 2022-06-19 15:30:44,268 - kedro_vertexai.client - INFO - Generated pipeline definition was saved to /var/folders/bx/l_4bqddn58n7gk784qb5n7j40000gn/T/kedro-vertexai944l38tr.json
 2022-06-19 15:31:16,279 - kedro_vertexai.client - INFO - Generated pipeline definition was saved to /var/folders/bx/l_4bqddn58n7gk784qb5n7j40000gn/T/kedro-vertexaikb28fzzq.json
 2022-06-19 15:34:30,185 - kedro_vertexai.client - INFO - Generated pipeline definition was saved to /var/folders/bx/l_4bqddn58n7gk784qb5n7j40000gn/T/kedro-vertexai566m3ci2.json
+2022-06-19 15:42:57,710 - kedro_vertexai.client - INFO - Generated pipeline definition was saved to /var/folders/bx/l_4bqddn58n7gk784qb5n7j40000gn/T/kedro-vertexaivqtip9i5.json
+2022-06-19 15:51:44,336 - kedro_vertexai.client - INFO - Generated pipeline definition was saved to pipe.json

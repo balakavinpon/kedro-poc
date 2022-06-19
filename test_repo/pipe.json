@@ -4,9 +4,6 @@
       "comp-data-acquisition": {
         "executorLabel": "exec-data-acquisition"
       },
-      "comp-data-volume-init": {
-        "executorLabel": "exec-data-volume-init"
-      },
       "comp-feature-engineering": {
         "executorLabel": "exec-feature-engineering"
       },
@@ -25,92 +22,80 @@
         "exec-data-acquisition": {
           "container": {
             "args": [
-              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"data_acquisition\" "
+              "KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro vertexai -e local initialize-job --params='{\"ratio\": 0.3}' &&  KEDRO_VERTEXAI_DISABLE_CONFIG_HOOK=false KEDRO_CONFIG_RUN_ID={{$.pipeline_job_uuid}} KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro run -e local --pipeline __default__ --node \"data_acquisition\" --config config.yaml"
             ],
             "command": [
               "/bin/bash",
               "-c"
             ],
-            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "image": "us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest",
             "resources": {
-              "cpuLimit": 0.5,
-              "memoryLimit": 0.536870912
+              "cpuLimit": 0.2,
+              "memoryLimit": 0.067108864
             }
-          }
-        },
-        "exec-data-volume-init": {
-          "container": {
-            "args": [
-              "mkdir --parents /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data && cp -r /home/kedro/data/* /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data"
-            ],
-            "command": [
-              "/bin/bash",
-              "-c"
-            ],
-            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest"
           }
         },
         "exec-feature-engineering": {
           "container": {
             "args": [
-              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"feature_engineering\" "
+              "KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro vertexai -e local initialize-job --params='{\"ratio\": 0.3}' &&  KEDRO_VERTEXAI_DISABLE_CONFIG_HOOK=false KEDRO_CONFIG_RUN_ID={{$.pipeline_job_uuid}} KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro run -e local --pipeline __default__ --node \"feature_engineering\" --config config.yaml"
             ],
             "command": [
               "/bin/bash",
               "-c"
             ],
-            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "image": "us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest",
             "resources": {
-              "cpuLimit": 0.5,
-              "memoryLimit": 0.536870912
+              "cpuLimit": 0.2,
+              "memoryLimit": 0.067108864
             }
           }
         },
         "exec-model-training": {
           "container": {
             "args": [
-              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"model_training\" "
+              "KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro vertexai -e local initialize-job --params='{\"ratio\": 0.3}' &&  KEDRO_VERTEXAI_DISABLE_CONFIG_HOOK=false KEDRO_CONFIG_RUN_ID={{$.pipeline_job_uuid}} KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro run -e local --pipeline __default__ --node \"model_training\" --config config.yaml"
             ],
             "command": [
               "/bin/bash",
               "-c"
             ],
-            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "image": "us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest",
             "resources": {
-              "cpuLimit": 0.5,
-              "memoryLimit": 0.536870912
+              "cpuLimit": 0.2,
+              "memoryLimit": 0.067108864
             }
           }
         },
         "exec-train-test-split-fun": {
           "container": {
             "args": [
-              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"train_test_split_fun\" "
+              "KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro vertexai -e local initialize-job --params='{\"ratio\": 0.3}' &&  KEDRO_VERTEXAI_DISABLE_CONFIG_HOOK=false KEDRO_CONFIG_RUN_ID={{$.pipeline_job_uuid}} KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro run -e local --pipeline __default__ --node \"train_test_split_fun\" --config config.yaml"
             ],
             "command": [
               "/bin/bash",
               "-c"
             ],
-            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "image": "us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest",
             "resources": {
-              "cpuLimit": 0.5,
-              "memoryLimit": 0.536870912
+              "cpuLimit": 0.2,
+              "memoryLimit": 0.067108864
             }
           }
         },
         "exec-validation": {
           "container": {
             "args": [
-              " rm -r /home/kedro/data&&ln -s /gcs/data_check_cloud_vertex_ai_pipeline/test_repo/test-repo-run123/data /home/kedro/data&& kedro run -e local --pipeline __default__ --params ratio:0.3 --node \"validation\" "
+              "KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro vertexai -e local initialize-job --params='{\"ratio\": 0.3}' &&  KEDRO_VERTEXAI_DISABLE_CONFIG_HOOK=false KEDRO_CONFIG_RUN_ID={{$.pipeline_job_uuid}} KEDRO_GLOBALS_PATTERN=\"*globals.yml\" kedro run -e local --pipeline __default__ --node \"validation\" --config config.yaml"
             ],
             "command": [
               "/bin/bash",
               "-c"
             ],
-            "image": "gcr.io/kedro-kubeflow-334417/test_repo:latest",
+            "image": "us-east4-docker.pkg.dev/dataproc-serverless-351706/kedro-docker-repo/test_repo:latest",
             "resources": {
-              "cpuLimit": 0.5,
-              "memoryLimit": 0.536870912
+              "cpuLimit": 0.2,
+              "memoryLimit": 0.067108864
             }
           }
         }
@@ -129,22 +114,8 @@
             "componentRef": {
               "name": "comp-data-acquisition"
             },
-            "dependentTasks": [
-              "data-volume-init"
-            ],
             "taskInfo": {
               "name": "data-acquisition"
-            }
-          },
-          "data-volume-init": {
-            "cachingOptions": {
-              "enableCache": true
-            },
-            "componentRef": {
-              "name": "comp-data-volume-init"
-            },
-            "taskInfo": {
-              "name": "data-volume-init"
             }
           },
           "feature-engineering": {
@@ -155,8 +126,7 @@
               "name": "comp-feature-engineering"
             },
             "dependentTasks": [
-              "data-acquisition",
-              "data-volume-init"
+              "data-acquisition"
             ],
             "taskInfo": {
               "name": "feature-engineering"
@@ -170,7 +140,6 @@
               "name": "comp-model-training"
             },
             "dependentTasks": [
-              "data-volume-init",
               "train-test-split-fun"
             ],
             "taskInfo": {
@@ -185,7 +154,6 @@
               "name": "comp-train-test-split-fun"
             },
             "dependentTasks": [
-              "data-volume-init",
               "feature-engineering"
             ],
             "taskInfo": {
@@ -200,7 +168,6 @@
               "name": "comp-validation"
             },
             "dependentTasks": [
-              "data-volume-init",
               "model-training",
               "train-test-split-fun"
             ],
@@ -212,7 +179,7 @@
       }
     },
     "schemaVersion": "2.0.0",
-    "sdkVersion": "kfp-1.6.6"
+    "sdkVersion": "kfp-1.8.12"
   },
   "runtimeConfig": {}
 }
